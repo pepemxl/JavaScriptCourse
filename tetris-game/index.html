@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <div>
+        <canvas id="tetris" width="300" height="600"></canvas>
+        <div>Score: <span id="score">0</span></div>
+        <div>
+            <label for="render-mode">Render Mode:</label>
+            <select name="render" id="render-mode">
+                <option value="colors">Classic</option>
+                <option value="rainbow-friends">Rainbow Friends</option>
+                <option value="poppy-playtime">Poppy Playtime</option>
+            </select>
+        </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    border: 10px solid #0c64b8;
+}
+
+#score {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#render-mode {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+
+canvaI {
+    color: #FF0D72; /* I red */
+}
+canvaO {
+    color: #0DC2FF; /* O lightblue */
+}
+canvaT {
+    color: #0DFF72; /* T green */
+}
+canvaL {
+    color: #F538FF; /* L purple */
+}
+canvaJ {
+    color: #FF8E0D; /* J orange */
+}
+canvaS {
+    color: #FFE138; /* S yellow */
+}
+canvaZ {
+    color: #3877FF; /* Z blue */
+}
