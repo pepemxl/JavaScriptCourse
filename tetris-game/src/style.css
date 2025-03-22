@@ -9,8 +9,59 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr; /* Tres columnas: izquierda, centro, derecha */
+    gap: 20px; /* Espacio entre columnas */
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Columna izquierda: Detalles del juego */
+.left-column {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.left-column h2 {
+    margin-top: 0;
+}
+
+/* Columna central: Juego de Tetris */
+.center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 canvas {
     border: 10px solid #0c64b8;
+}
+
+canvas#tetris {
+    border: 5px solid #fff;
+}
+
+/* Columna derecha: Próxima pieza y descripciones */
+.right-column {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right-column h2 {
+    margin-top: 0;
+}
+
+canvas#next-piece {
+    border: 2px solid #fff;
+    margin-bottom: 20px;
+}
+
+#piece-description {
+    font-size: 14px;
 }
 
 #score {

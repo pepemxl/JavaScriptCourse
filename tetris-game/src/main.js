@@ -1,6 +1,7 @@
 import { KEYBOARD_KEYS } from "./constants";
 import { COLORS } from "./constants";
 import { pieceImagesRainbowFriends } from "./constants"
+import { pieceImagesRainbowFriendsBig } from "./constants";
 
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -10,6 +11,10 @@ const COLS = 10;
 const BLOCK_SIZE = 30;
 
 context.scale(BLOCK_SIZE, BLOCK_SIZE);
+
+const nextPieceCanvas = document.getElementById('next-piece');
+const nextPieceContext = nextPieceCanvas.getContext('2d');
+nextPieceContext.scale(BLOCK_SIZE, BLOCK_SIZE)
 
 let renderMode = 'colors'
 const savedRenderMode = localStorage.getItem('renderMode');
@@ -43,6 +48,7 @@ const player = {
     matrix: null,
     score: 0,
 };
+
 
 
 const pieces = [
@@ -87,6 +93,10 @@ const drawImage = (image, x, y) => {
     context.drawImage(image, x, y, 1, 1);
 };
 
+const drawNextPieceImage = (image, x, y) => {
+    nextPieceContext.drawImage(image, x, y, 1, 1);
+};
+
 const drawMatrix = (matrix, offset) => {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
@@ -97,6 +107,9 @@ const drawMatrix = (matrix, offset) => {
                 } else if (renderMode === 'rainbow-friends'){
                     const pieceType = Object.keys(pieceImagesRainbowFriends)[value - 1];
                     drawImage(pieceImagesRainbowFriends[pieceType], x + offset.x, y + offset.y);
+                } else {
+                    context.fillStyle = COLORS[value];
+                    context.fillRect(x + offset.x, y + offset.y, 1, 1);
                 }
             }
         });
@@ -109,6 +122,33 @@ const draw = () => {
 
     drawMatrix(arena, { x: 0, y: 0 });
     drawMatrix(player.matrix, player.pos);
+};
+
+
+const drawNextPiece = (pieceMatrix) => {
+    // Limpiar el canvas
+    nextPieceContext.fillStyle = '#000';
+    nextPieceContext.fillRect(0, 0, nextPieceCanvas.width, nextPieceCanvas.height);
+
+    // Dibujar la próxima pieza
+    pieceMatrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                //nextPieceContext.fillStyle = colors[value];
+                //nextPieceContext.fillRect(x, y, 1, 1);
+                if (renderMode === 'colors'){
+                    nextPieceContext.fillStyle = COLORS[value];
+                    nextPieceContext.fillRect(x, y, 1, 1);
+                } else if (renderMode === 'rainbow-friends'){
+                    const pieceType = Object.keys(pieceImagesRainbowFriendsBig)[value - 1];
+                    drawNextPieceImage(pieceImagesRainbowFriendsBig[pieceType], x, y);
+                } else {
+                    nextPieceContext.fillStyle = COLORS[value];
+                    nextPieceContext.fillRect(x, y, 1, 1);
+                }
+            }
+        });
+    });
 };
 
 const merge = (arena, player) => {
@@ -167,7 +207,9 @@ const playerMove = (dir) => {
 
 const playerReset = () => {
     const pieces = 'ILJOTSZ';
-    player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+    let nextPiece = createPiece(pieces[pieces.length * Math.random() | 0]);
+    player.matrix = nextPiece;
+    drawNextPiece(nextPiece);
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {

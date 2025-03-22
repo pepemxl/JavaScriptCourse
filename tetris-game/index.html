@@ -7,16 +7,29 @@
     <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
-    <div>
-        <canvas id="tetris" width="300" height="600"></canvas>
-        <div>Score: <span id="score">0</span></div>
-        <div>
-            <label for="render-mode">Render Mode:</label>
-            <select name="render" id="render-mode">
-                <option value="colors">Classic</option>
-                <option value="rainbow-friends">Rainbow Friends</option>
-                <option value="poppy-playtime">Poppy Playtime</option>
-            </select>
+    <div class="container">
+        <div class="left-column">
+            <h2>Detalles</h2>
+            <div>
+                <label for="render-mode">Render Mode:</label>
+                <select name="render" id="render-mode">
+                    <option value="colors">Classic</option>
+                    <option value="rainbow-friends">Rainbow Friends</option>
+                    <option value="poppy-playtime">Poppy Playtime</option>
+                </select>
+            </div>
+            <div>Puntuación: <span id="score">0</span></div>
+            <div id="level">Nivel: 1</div>
+            <div id="lines">Líneas: 0</div>
+        </div>
+        <div class="center-column">
+            <canvas id="tetris" width="300" height="600"></canvas>
+        </div>
+
+        <div class="right-column">
+            <h2>Próxima Pieza</h2>
+            <canvas id="next-piece" width="120" height="120"></canvas>
+            <div id="piece-description">Descripción de la pieza</div>
         </div>
     </div>
     <script type="module" src="./src/main.js"></script>
