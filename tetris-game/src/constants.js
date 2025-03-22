@@ -77,7 +77,7 @@ export const pieceImagesMario = {
 
 // Cargar las imágenes
 pieceImagesMario.I.src = '/images/mar/mario_c.png'; // I Red
-pieceImagesMario.O.src = '/images/mar/luigui_c.png'; // O LightBlue
+pieceImagesMario.O.src = '/images/mar/luigi_c.png'; // O LightBlue
 pieceImagesMario.T.src = '/images/mar/plant_02_c.png'; // T Green
 pieceImagesMario.L.src = '/images/mar/princess_c.png'; // L Purple
 pieceImagesMario.J.src = '/images/mar/bowser_c.png'; // J Orange
