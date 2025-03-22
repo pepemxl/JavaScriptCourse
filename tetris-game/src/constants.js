@@ -9,13 +9,13 @@ export const KEYBOARD_KEYS = {
 
 export const COLORS = [
     null,
-    '#FF0D72', // Color  I
-    '#0DC2FF', // Color  O
-    '#0DFF72', // Color  T
-    '#F538FF', // Color  L
-    '#FF8E0D', // Color  J
-    '#FFE138', // Color  S
-    '#3877FF', // Color  Z
+    '#FF0D72', // Color  I Red
+    '#0DC2FF', // Color  O LightBlue
+    '#0DFF72', // Color  T Green
+    '#F538FF', // Color  L Purple
+    '#FF8E0D', // Color  J Orange
+    '#FFE138', // Color  S Yellow
+    '#3877FF', // Color  Z Blue
 ];
 
 
@@ -41,7 +41,7 @@ pieceImagesRainbowFriends.Z.src = '/images/rainbow_friends/blue_c.png'; // Z
 
 
 
-// Imágenes para las piezas
+// Imágenes para mostrar la siguiente pieza
 export const pieceImagesRainbowFriendsBig = {
     I: new Image(),
     O: new Image(),
@@ -60,3 +60,26 @@ pieceImagesRainbowFriendsBig.L.src = '/images/rainbow_friends/pink.png'; // L
 pieceImagesRainbowFriendsBig.J.src = '/images/rainbow_friends/orange.png'; // J
 pieceImagesRainbowFriendsBig.S.src = '/images/rainbow_friends/yellow.png'; // S
 pieceImagesRainbowFriendsBig.Z.src = '/images/rainbow_friends/blue.png'; // Z
+
+
+
+
+// Imágenes para las piezas
+export const pieceImagesMario = {
+    I: new Image(),
+    O: new Image(),
+    T: new Image(),
+    L: new Image(),
+    J: new Image(),
+    S: new Image(),
+    Z: new Image(),
+};
+
+// Cargar las imágenes
+pieceImagesMario.I.src = '/images/mar/mario_c.png'; // I Red
+pieceImagesMario.O.src = '/images/mar/luigui_c.png'; // O LightBlue
+pieceImagesMario.T.src = '/images/mar/plant_02_c.png'; // T Green
+pieceImagesMario.L.src = '/images/mar/princess_c.png'; // L Purple
+pieceImagesMario.J.src = '/images/mar/bowser_c.png'; // J Orange
+pieceImagesMario.S.src = '/images/mar/star_c.png'; // S Yellow
+pieceImagesMario.Z.src = '/images/mar/caparazon_azul_c.png'; // Z Blue

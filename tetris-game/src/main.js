@@ -2,6 +2,7 @@ import { KEYBOARD_KEYS } from "./constants";
 import { COLORS } from "./constants";
 import { pieceImagesRainbowFriends } from "./constants"
 import { pieceImagesRainbowFriendsBig } from "./constants";
+import { pieceImagesMario } from "./constants";
 
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -107,6 +108,9 @@ const drawMatrix = (matrix, offset) => {
                 } else if (renderMode === 'rainbow-friends'){
                     const pieceType = Object.keys(pieceImagesRainbowFriends)[value - 1];
                     drawImage(pieceImagesRainbowFriends[pieceType], x + offset.x, y + offset.y);
+                } else if (renderMode === 'mario'){
+                    const pieceType = Object.keys(pieceImagesMario)[value - 1];
+                    drawImage(pieceImagesMario[pieceType], x + offset.x, y + offset.y);
                 } else {
                     context.fillStyle = COLORS[value];
                     context.fillRect(x + offset.x, y + offset.y, 1, 1);
@@ -142,6 +146,9 @@ const drawNextPiece = (pieceMatrix) => {
                 } else if (renderMode === 'rainbow-friends'){
                     const pieceType = Object.keys(pieceImagesRainbowFriendsBig)[value - 1];
                     drawNextPieceImage(pieceImagesRainbowFriendsBig[pieceType], x, y);
+                } else if (renderMode === 'mario'){
+                    const pieceType = Object.keys(pieceImagesMario)[value - 1];
+                    drawNextPieceImage(pieceImagesMario[pieceType], x, y);
                 } else {
                     nextPieceContext.fillStyle = COLORS[value];
                     nextPieceContext.fillRect(x, y, 1, 1);
